@@ -5,6 +5,7 @@ with open('input/d9.txt') as f:
 risk_level = 0
 for i in range(len(cave)):
   for j in range(len(cave[i])):
+    
     adjacent_coords = [[i, j + 1], [i, j - 1], [i - 1, j], [i + 1, j]]
     possible_coords = [k for k in adjacent_coords if k[0] < len(cave) and k[1] < len(cave[i]) and k[0] >= 0 and k[1] >= 0]
     
@@ -16,8 +17,10 @@ print(risk_level)
 def helper(cave, i, j, basin_size):
   if cave[i][j] == "9":
     return
+  
   cave[i][j] = "9"
   basin_size[0] += 1
+  
   if i + 1 < len(cave):
     helper(cave, i + 1, j, basin_size)
   if i - 1 >= 0:
