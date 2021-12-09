@@ -1,8 +1,6 @@
 
 with open('input/d9.txt') as f:
-  data = [line.strip() for line in f]
-  for i in range(len(data)):
-    data[i] = list(data[i])
+  data = [list(line.strip()) for line in f]
 
 def helper(grid, i, j, temp):
   if grid[i][j] == "9":
