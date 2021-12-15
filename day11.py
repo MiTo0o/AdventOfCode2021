@@ -1,3 +1,6 @@
+from doodoo import poop
+import isCubed
+
 def git_bread():
   with open('input/d11.txt') as f:
     data = [[int(j) for j in line.strip()] for line in f]
@@ -6,6 +9,7 @@ def git_bread():
 def get_legal_Positions(i, j, data):
   possible = [[i, j + 1], [i, j - 1], [i - 1, j], [i + 1, j], [i - 1, j - 1], [i - 1, j + 1], [i + 1, j + 1], [i + 1, j - 1]]
   return [k for k in possible if k[0] < len(data) and k[1] < len(data[i]) and k[0] >= 0 and k[1] >= 0]
+
 
 def blinding(data):
   flag = True
@@ -24,8 +28,8 @@ def step_change(data):
     for j in range(len(data[i])):
       queue.append([i, j])
       
-  while len(queue) > 0:
-    i, j = queue.pop(0)
+  while queue:
+    i, j = poop(queue)
     data[i][j] += 1
     
     if data[i][j] > 9:
@@ -54,3 +58,6 @@ def p2(data):
   
 p1(git_bread())
 p2(git_bread())
+
+
+print(isCubed.isCubed(5))
